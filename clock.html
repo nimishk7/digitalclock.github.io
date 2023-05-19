@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #252525;
+            color: rgb(0, 255, 0);
+            font-size: 3.5rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .upper {
+            padding-top: 14rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lower {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    </head>
+
+    <body>
+        <div class="upper">
+            <span id="hr"></span> :
+            <span id="min"></span> :
+            <span id="sec"></span>
+            <span id="ampm"> PM</span>
+
+        </div>
+
+        <div class="lower">
+            <span id="day"></span> /
+            <span id="date"></span> -
+            <span id="month"></span> -
+            <span id="year"></span>
+        </div>
+
+        <script>
+            setInterval(()=>{
+            function Clock() {
+                var d = new Date();
+
+                const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+                const days=["SUN","MON","TUE","WED","THU","FRI","SAT"]
+
+                    document.getElementById("hr").innerHTML = d.getHours();
+                    document.getElementById("min").innerHTML = d.getMinutes();
+                    document.getElementById("sec").innerHTML = d.getSeconds();
+
+                    document.getElementById("day").innerHTML = days[d.getDay()];
+                    document.getElementById("date").innerHTML = d.getDate();
+                    document.getElementById("month").innerHTML = months[d.getMonth()];
+                    document.getElementById("year").innerHTML = d.getFullYear();
+                    
+                    
+                }
+                Clock();
+                setInterval(displayTime, 1000);
+            })
+            
+
+
+        </script>
+    </body>
+
+</html>
